@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fulshear Roofing — website
 
-## Getting Started
+Marketing site for **Fulshear Roofing**, built with [Next.js](https://nextjs.org) (App Router), TypeScript, and Tailwind CSS. Content reflects the public site at [fulshearroof.com](https://fulshearroof.com).
 
-First, run the development server:
+## Local development
+
+Prerequisites: [Node.js](https://nodejs.org/) 20+ (or the version your team standardizes on).
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). Edit copy in [`content/site.ts`](content/site.ts) and layout in [`app/page.tsx`](app/page.tsx) and [`components/`](components/).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other commands:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # production build
+npm run start   # run production server locally
+npm run lint    # ESLint
+```
 
-## Learn More
+## Deploy with GitHub and Vercel
 
-To learn more about Next.js, take a look at the following resources:
+1. **Create a GitHub repository** (empty, no README required) in your GitHub account.
+2. **Push this project** from your machine (replace `YOUR_ORG` and `YOUR_REPO`):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git remote add origin https://github.com/YOUR_ORG/YOUR_REPO.git
+   git branch -M main
+   git push -u origin main
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Import the repo in Vercel**
+   - Sign in at [vercel.com](https://vercel.com).
+   - Choose **Add New… → Project** and **Import** your GitHub repository.
+   - Framework preset: **Next.js** (auto-detected). Root directory: **`.`** (repository root).
+   - Click **Deploy**. Production updates run on every push to the branch you connect (usually `main`).
 
-## Deploy on Vercel
+4. **Optional: production URL for metadata**
+   - In Vercel → Project → **Settings → Environment Variables**, add `NEXT_PUBLIC_SITE_URL` with your canonical URL (for example `https://www.your-domain.com`).
+   - Redeploy so Open Graph URLs use the right base. If unset, the app defaults to `https://fulshearroof.com` for `metadataBase`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. **Custom domain**
+   - In Vercel → **Settings → Domains**, add your domain and follow DNS instructions from Vercel.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project structure
+
+| Path | Purpose |
+|------|---------|
+| [`app/layout.tsx`](app/layout.tsx) | Root layout, fonts, SEO metadata |
+| [`app/page.tsx`](app/page.tsx) | Home page sections |
+| [`content/site.ts`](content/site.ts) | Phone, address, services, service areas, and other copy |
+| [`components/`](components/) | Header, hero, services, areas search, footer |
+
+## License
+
+Private — for Fulshear Roofing use.
