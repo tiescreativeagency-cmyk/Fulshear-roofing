@@ -35,15 +35,15 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link
           href="#top"
-          className="flex min-h-11 min-w-0 shrink-0 items-center rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="flex min-h-20 min-w-0 shrink-0 items-center rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:min-h-[5.5rem]"
           onClick={() => setOpen(false)}
         >
           <Image
             src="/logo.png"
             alt={`${site.name} — ${site.tagline}`}
-            width={200}
-            height={88}
-            className="h-10 w-auto sm:h-11"
+            width={400}
+            height={176}
+            className="h-20 w-auto sm:h-[5.5rem]"
             priority
           />
         </Link>
